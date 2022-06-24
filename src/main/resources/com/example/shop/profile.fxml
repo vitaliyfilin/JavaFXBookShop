@@ -14,6 +14,7 @@
          <children>
             <Text fill="WHITE" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book shop" />
             <Text fx:id="profile_page" fill="WHITE" layoutX="281.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile " />
+            <Button fx:id="feedback_button" layoutX="527.0" layoutY="9.0" mnemonicParsing="false" text="Feedback" />
          </children>
       </Pane>
       <TableView fx:id="profile_table" layoutX="11.0" layoutY="242.0" prefHeight="57.0" prefWidth="579.0">

@@ -279,8 +279,20 @@ public class DBShop {
         return null;
 
     }
+    public static void getMessages(int user_id) throws SQLException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        PreparedStatement preparedStatement = getConnection().prepareStatement("SELECT u.id, f.id, f.message FROM users as u inner join feedback as f on f.user_id = u.id where f.user_id = ?");
+        preparedStatement.setInt(1, user_id);
+        preparedStatement.executeUpdate();
+    }
+    public static void sendMessage(int user_id, String message) throws SQLException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        PreparedStatement preparedStatement = getConnection().prepareStatement("INSERT INTO feedback (message, user_id) VALUES (?, ?)");
+        preparedStatement.setString(1, message);
+        preparedStatement.setInt(2, user_id);
+        preparedStatement.executeUpdate();
+    }
+
 }
 
-
+//SELECT u.id, f.id, f.message FROM users as u inner join feedback as f on f.user_id = u.id where f.user_id = ?;
 //SELECT b.id, b.name, b.author, b.price, ub.num, ub.id FROM books as b inner join user_books as ub on ub.book_id = b.id where ub.user_id = 5;
 

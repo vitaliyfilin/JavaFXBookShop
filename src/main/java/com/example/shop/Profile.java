@@ -94,6 +94,8 @@ public class Profile {
     @FXML
     private TableColumn<user_book, Integer> userbookpurchaseid;
 
+    @FXML
+    private Button feedback_button;
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException {
@@ -142,7 +144,7 @@ public class Profile {
 
 
         edit_button.setOnAction(x -> {
-            if (!name_field.getText().isEmpty()) {
+            if (!name_field.getText().isEmpty() && name_field.getText().length() > 3) {
                 try {
                     DBShop.editName(name_field.getText(), HelloController.currentuser);
                 } catch (SQLException | IllegalAccessException | ClassNotFoundException | NoSuchMethodException | InstantiationException e) {
@@ -151,7 +153,7 @@ public class Profile {
             } else {
                 Alert errorAlert = new Alert(Alert.AlertType.ERROR);
                 errorAlert.setHeaderText("Error");
-                errorAlert.setContentText("Name can't be blank");
+                errorAlert.setContentText("Name can't be blank and must be at least 3 characters long");
                 errorAlert.showAndWait();
             }
         });
@@ -171,7 +173,13 @@ public class Profile {
                 errorAlert.showAndWait();
             }
         });
-
+        feedback_button.setOnAction(x -> {
+            try {
+                openPage("Messages.fxml");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public void openPage(String str) throws IOException {
