@@ -71,8 +71,10 @@ public class Register {
     public int genderReturn() {
         if (selectedLbl.getText().equals("Male")) {
             return 0;
-        } else {
+        } else if (selectedLbl.getText().equals("Female")) {
             return 1;
+        } else {
+            return 2;
         }
     }
 
