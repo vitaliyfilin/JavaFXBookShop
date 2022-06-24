@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.shop.Profile">
+   <children>
+      <Pane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #29c5f6;">
+         <children>
+            <Text fill="WHITE" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book shop" />
+            <Text fx:id="profile_page" fill="WHITE" layoutX="281.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile " />
+         </children>
+      </Pane>
+      <TableView fx:id="profile_table" layoutX="11.0" layoutY="242.0" prefHeight="57.0" prefWidth="579.0">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="nameColumn" prefWidth="76.6666259765625" text="name" />
+            <TableColumn fx:id="passwordColumn" prefWidth="75.0" text="password" />
+            <TableColumn fx:id="genderColumn" prefWidth="75.0" text="gender" />
+            <TableColumn fx:id="countryColumn" prefWidth="75.0" text="country" />
+            <TableColumn fx:id="moneyColumn" prefWidth="75.0" text="money" />
+            <TableColumn fx:id="roleColumn" prefWidth="75.0" text="role" />
+        </columns>
+      </TableView>
+      <Button fx:id="edit_button" layoutX="7.0" layoutY="334.0" mnemonicParsing="false" text="Edit" />
+      <Button fx:id="back_button" layoutX="14.0" layoutY="52.0" mnemonicParsing="false" text="Back" />
+      <TextField fx:id="name_field" layoutX="45.0" layoutY="334.0" promptText="Name" />
+      <TextField fx:id="money_field" layoutX="45.0" layoutY="360.0" promptText="Money" />
+      <Button fx:id="add_button" layoutX="6.0" layoutY="360.0" mnemonicParsing="false" text="Add" />
+      <TableView fx:id="userbook_table" layoutX="11.0" layoutY="84.0" prefHeight="151.0" prefWidth="579.0">
+        <columns>
+          <TableColumn fx:id="userbookid" prefWidth="75.0" text="book id" />
+          <TableColumn fx:id="userbookname" prefWidth="155.33334350585938" text="name" />
+            <TableColumn fx:id="userbookauthor" prefWidth="178.0" text="author" />
+            <TableColumn fx:id="userbookprice" minWidth="0.0" prefWidth="43.33331298828125" text="price" />
+            <TableColumn fx:id="userbooknum" prefWidth="62.0" text="num" />
+            <TableColumn fx:id="userbookpurchaseid" prefWidth="48.66668701171875" text="purchase id" />
+        </columns>
+      </TableView>
+      <Button fx:id="edit_pasword" layoutX="7.0" layoutY="308.0" mnemonicParsing="false" text="Edit" />
+      <TextField fx:id="password_field" layoutX="45.0" layoutY="308.0" promptText="Password" />
+      <Text layoutX="260.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your purchases" />
+   </children>
+</AnchorPane>
