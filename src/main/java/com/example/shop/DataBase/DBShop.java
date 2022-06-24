@@ -1,8 +1,6 @@
 package com.example.shop.DataBase;
 
-import com.example.shop.Book;
-import com.example.shop.User;
-import com.example.shop.user_book;
+import com.example.shop.*;
 import javafx.scene.control.Alert;
 
 import java.math.BigDecimal;
@@ -164,13 +162,27 @@ public class DBShop {
         return userBook;
     }
 
+    public static Gender getGender(int user_id) throws SQLException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        PreparedStatement preparedStatement = getConnection().prepareStatement("SELECT gender from users where id = ?");
+        preparedStatement.setInt(1, user_id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            if (resultSet.getString(1).equals("Male")) {
+                return Gender.Male;
+            } else {
+                return Gender.Female;
+            }
+        }
+        return null;
+    }
+
     public static List<User> getUserProfile(int user_id) throws SQLException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         PreparedStatement preparedStatement = getConnection().prepareStatement("SELECT * FROM users where id = ?");
         preparedStatement.setInt(1, user_id);
         ResultSet resultSet = preparedStatement.executeQuery();
         List<User> userList = new ArrayList<>();
         while (resultSet.next()) {
-            userList.add(new User(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), Gender.Male, resultSet.getString(5), resultSet.getBigDecimal(6)));
+            userList.add(new User(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), getGender(user_id), resultSet.getString(5), resultSet.getBigDecimal(6)));
         }
         return userList;
     }

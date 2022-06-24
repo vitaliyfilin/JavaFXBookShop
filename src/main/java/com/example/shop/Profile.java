@@ -99,6 +99,7 @@ public class Profile {
     void initialize() throws SQLException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         userBookObservableList.addAll(DBShop.getUserBooks(HelloController.currentuser));
         userObservableList.addAll(DBShop.getUserProfile(HelloController.currentuser));
+        DBShop.getGender(HelloController.currentuser);
 
         idColumn.setCellValueFactory(new PropertyValueFactory<User, Integer>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
